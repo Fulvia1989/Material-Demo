@@ -1,0 +1,79 @@
+<mat-sidenav-container>
+  <mat-sidenav mode="side" #sidenav (opened)="log('Opened')" (closed)="log('Closed')">
+
+    <div>
+      <button mat-stroked-button color="accent" [matMenuTriggerFor]="appMenu">Menu</button>
+      <mat-menu #appMenu="matMenu" xPosition="after" yPosition="below">
+        <button mat-menu-item [matMenuTriggerFor]="subMenu" >FrontEnd</button>
+        <button mat-menu-item>BackEnd</button>
+      </mat-menu>
+      <mat-menu #subMenu="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="lazyMenu" [matMenuTriggerData]="{name:'Angular'}">Angular</button>
+        <button mat-menu-item [matMenuTriggerFor]="lazyMenu" [matMenuTriggerData]="{name:'React'}">React</button>
+        <button mat-menu-item>Vue</button>
+      </mat-menu>
+
+      <button mat-flat-button color="accent" [matMenuTriggerFor]="appMenu">Dynamic Menu</button>
+      <mat-menu #lazyMenu="matMenu">
+        <ng-template matMenuContent let-name="name">
+          <button mat-menu-item>About {{name}}</button>
+          <button mat-menu-item>Start coding</button>
+        </ng-template>
+      </mat-menu>
+    </div>
+    <div>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon matListIcon>home</mat-icon>
+          <h3 matLine>Heading 1</h3>
+          <p matLine>Line 1</p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon matListIcon>folder</mat-icon>
+          <h3 matLine>Heading 2</h3>
+          <p matLine>Line 2</p>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <p>
+      <mat-toolbar color="primary">
+        <mat-toolbar-row >
+          <span>Angular Material Demo</span>
+          <span class="example-spacer"></span>
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+           (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <button  mat-icon-button>
+            <mat-icon [matBadge]="notifications" [matBadgeHidden]="!notifications" 
+            matBadgePosition="above after" matBadgeSize="small" 
+            matBadgeColor="warn" matBadgeOverlap="true">email</mat-icon>
+          </button>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+          <button color="primary" routerLink="/typography" mat-flat-button>Typography</button>
+          <button color="primary" routerLink="/buttons" mat-flat-button>Buttons</button>
+          <button color="primary" routerLink="/spinners" mat-flat-button>Spinners</button>
+          <button color="primary" routerLink="/grid" mat-flat-button>Grid</button>
+          <button color="primary" routerLink="/accordion" mat-flat-button>Accordion</button>
+          <button color="primary" routerLink="/form" mat-flat-button>Forms</button>
+
+
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </p>
+     
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+
+

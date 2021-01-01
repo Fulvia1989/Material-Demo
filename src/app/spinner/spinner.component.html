@@ -1,0 +1,27 @@
+<mat-tab-group #tabRef (selectedTabChange)="log(tabRef.selectedIndex)">
+    <mat-tab label="Progress Spinner">
+        <div>
+            <mat-progress-spinner color="warn" value="40"></mat-progress-spinner>
+
+        </div>
+    </mat-tab>
+    <mat-tab label="Loading Spinner">
+        <div>
+            <button color="accent" mat-flat-button (click)="loadData()">Load</button>
+            <mat-spinner *ngIf="showSpinner"></mat-spinner>
+        </div>
+        
+    </mat-tab>
+    
+    <mat-tab label="Indeterminate bar">
+        <div>
+            <mat-progress-bar mode="indeterminate" >loading</mat-progress-bar>
+        </div>
+    </mat-tab>
+    <mat-tab label="Buffer bar">
+        <div>
+            <mat-progress-bar mode="buffer"></mat-progress-bar>
+        </div>
+    </mat-tab>
+</mat-tab-group>
+

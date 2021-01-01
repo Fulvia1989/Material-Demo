@@ -1,0 +1,15 @@
+mat-grid-tile:nth-child(1){
+    background-color: lightskyblue;
+}
+mat-grid-tile:nth-child(4){
+    background-color: lightgrey!important;
+}
+mat-grid-tile:nth-child(odd){
+    background-color: lightslategray;
+}
+mat-grid-tile:nth-child(even){
+    background-color: linen;
+}
+mat-grid-list{
+    margin:0.5rem;
+}

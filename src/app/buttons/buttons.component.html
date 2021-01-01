@@ -1,0 +1,90 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>
+      Basic buttons
+    </mat-card-title>
+    <mat-card-content>
+      <button mat-raised-button>Raised</button>
+      <button mat-flat-button>Flat</button>
+      <button mat-stroked-button>Stroked</button>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-icon-button>
+        <mat-icon >launch</mat-icon>
+      </button>
+    </mat-card-actions>
+    
+  </mat-card>
+  <mat-card>
+    <mat-card-title>
+      Special buttons
+    </mat-card-title>
+    <mat-card-content>
+      <button mat-icon-button>Icon</button>
+      <button mat-fab>Fab</button>
+      <button mat-mini-fab>Mini Fab</button>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-icon-button>
+        <mat-icon >launch</mat-icon>
+      </button>
+    </mat-card-actions>
+    
+  </mat-card>
+  <mat-card>
+    <mat-card-title>
+      Colors and Styles
+    </mat-card-title>
+    <mat-card-content>
+      <button color="primary" mat-button>Primary</button>
+      <button color="accent" mat-button>Accent</button>
+      <button color="warn" disableRipple mat-button>Warn</button>
+      <button color="primary" mat-raised-button>Primary</button>
+      <button color="accent" mat-raised-button>Accent</button>
+      <button color="warn" mat-raised-button>Warn</button>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-icon-button>
+        <mat-icon >launch</mat-icon>
+      </button>
+    </mat-card-actions>
+    
+  </mat-card>
+  <mat-card class="toggles">
+    <mat-card-title>
+      Toggles
+    </mat-card-title>
+    <mat-card-content>
+      <div>
+        <mat-button-toggle #toggleBtn disableRipple>Toggle</mat-button-toggle>
+        {{toggleBtn.checked}}
+      </div>
+      <div>
+        <mat-button-toggle-group #toggleGroup="matButtonToggleGroup">
+            <mat-button-toggle value="angular">Angular</mat-button-toggle>
+            <mat-button-toggle value="react">React</mat-button-toggle>
+            <mat-button-toggle value="vue">Vue</mat-button-toggle>
+        </mat-button-toggle-group>
+        {{toggleGroup.value}}
+      </div>
+      <div>
+        <mat-button-toggle-group #toggleGroupMultiple="matButtonToggleGroup" multiple>
+            <mat-button-toggle value="angular">Angular</mat-button-toggle>
+            <mat-button-toggle value="react">React</mat-button-toggle>
+            <mat-button-toggle value="vue">Vue</mat-button-toggle>
+        </mat-button-toggle-group>
+        {{toggleGroupMultiple.value}}
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-icon-button>
+        <mat-icon >launch</mat-icon>
+      </button>
+    </mat-card-actions>
+    
+  </mat-card>
+</div>
+
+
+
+

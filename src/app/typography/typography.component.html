@@ -1,0 +1,89 @@
+<mat-horizontal-stepper linear>
+  <mat-step label="Choose a display size" [completed]="displaySize">
+    <label id="radio-group-label">Choose a display size</label>
+    <mat-radio-group class="vertical" aria-labelledby="radio-group-label" [(ngModel)]="displaySize">
+      <mat-radio-button color="warn" [value]="4">
+        <p class="mat-display-4">This is display 4</p>
+      </mat-radio-button>
+      <mat-radio-button color="warn" [value]="3">
+        <p class="mat-display-3">This is display 3</p>
+      </mat-radio-button>
+      <mat-radio-button color="warn" [value]="2">
+        <p class="mat-display-2">This is display 2</p>
+      </mat-radio-button>
+      <mat-radio-button  color="warn" [value]="1">
+        <p class="mat-display-1">This is display 1</p>
+      </mat-radio-button>
+    </mat-radio-group>
+    <div>You've choosen display size: {{displaySize}}</div>
+
+    <div *ngIf="displaySize">
+      <button mat-button matStepperPrevious> Back</button>
+      <button mat-button matStepperNext> Next</button>
+
+    </div>
+  </mat-step>
+  <mat-step label="Choose a heading" completed="heading">
+
+    <label id="radio-group-label">Choose a heading</label>
+    <mat-radio-group class="vertical" aria-labelledby="radio-group-label" [(ngModel)]="heading">
+      <mat-radio-button color="warn" [value]="'h1'">
+        <div class="mat-headline">Heading for h1</div>
+      </mat-radio-button>
+      <mat-radio-button color="warn" [value]="'h2'">
+        <div class="mat-title">Heading for h2</div>
+      </mat-radio-button>
+      <mat-radio-button color="warn" [value]="'h3'">
+        <div class="sub-heading-2">Heading for h3</div>
+      </mat-radio-button>
+      <mat-radio-button  color="warn" [value]="'h4'">
+        <div class="sub-heading-1"> Heading for h4</div>
+      </mat-radio-button>
+    </mat-radio-group>
+    <div>You've choosen header tag: <{{heading}}> </div>
+
+    <div *ngIf="heading">
+      <button mat-button matStepperPrevious> Back</button>
+      <button mat-button matStepperNext> Next</button>
+
+    </div>
+  </mat-step>
+  <mat-step label="Choose a body format">
+
+    <label id="radio-group-label">Choose a heading</label>
+    <mat-radio-group class="vertical" aria-labelledby="radio-group-label" [(ngModel)]="style">
+      <mat-radio-button color="warn" [value]="'body'">
+        <div class="mat-body-1">Body text</div>
+      </mat-radio-button>
+      <mat-radio-button color="warn" [value]="'bold'">
+        <div class="mat-body-2">Bold body text</div>
+      </mat-radio-button>
+      <mat-radio-button color="warn" [value]="'caption'">
+        <div class="mat-caption">Caption</div>
+      </mat-radio-button>
+    
+    </mat-radio-group>
+    <div>You've choosen text style: {{style}} </div>
+
+    <div>
+      <button mat-button matStepperPrevious> Back</button>
+      <button mat-button matStepperNext> Next</button>
+
+    </div>
+  </mat-step>
+  <mat-step label="...or be lazy" optional>
+    <div class="mat-typography">
+      <h1>Mat-typography class</h1>
+      <h2>decides for you font sizes and weights</h2>
+      <h3>Just choose the tag</h3>
+      <h4>and let it do the work</h4>
+      <p>...if you want.</p>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+
+
+
+
+
+
