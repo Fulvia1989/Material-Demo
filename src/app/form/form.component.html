@@ -58,4 +58,14 @@
 
         <mat-checkbox  labelPosition="after" [formControl]="checkBox"> subscribe </mat-checkbox>
 
+    <mat-form-field>
+        <input matInput [matDatepicker]="datePicker" [min]="minDate" [max]="maxDate" [matDatepickerFilter]="datefilter">
+        <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+        <mat-datepicker #datePicker startView="month"></mat-datepicker>
+    </mat-form-field>
 </form>
+
+<button mat-button color="accent" (click)="openSnackBar('You need a real form to proceed', 'Dismiss')">
+    Confirm
+</button>
+<button mat-raised-button (click)="openDialog()">Open Dialog</button>

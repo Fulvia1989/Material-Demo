@@ -14,6 +14,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { GridComponent } from './grid/grid.component';
 import { AccordionComponent } from './accordion/accordion.component';
 import { FormComponent } from './form/form.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FormComponent } from './form/form.component';
     SidenavComponent,
     GridComponent,
     AccordionComponent,
-    FormComponent
+    FormComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,

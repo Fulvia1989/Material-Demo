@@ -44,7 +44,9 @@
           <span>Angular Material Demo</span>
           <span class="example-spacer"></span>
           <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
-           (click)="sidenav.toggle()">
+           (click)="sidenav.toggle()" 
+           matTooltip="Open menu" matTooltipPosition="below" 
+           matTooltipShowDelay="1000" matTooltipHideDelay="500">
             <mat-icon>menu</mat-icon>
           </button>
           <button  mat-icon-button>
