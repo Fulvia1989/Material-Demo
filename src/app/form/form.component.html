@@ -1,69 +1,111 @@
-<form class="example-form">
-    <mat-form-field class="example-full-width" appearance="standard">
-      <mat-label>Name</mat-label>
-      <input matInput placeholder="Your name" [formControl]="name" required>
-      <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+<p class="mat-title">Universe story-time</p>
+<p class="mat-headline">A far-away adventure in Space</p>
+<div class="container">
+    <mat-card>
+        <form class="form">
+           
+            <div class="form-row"> 
+                <p class="mat-subheading-2">You and your friend are preparing for a great adventure, a long long journey 
+                far away from Earth, to unravel the misteries of our Universe. 
+                </p>
+                <mat-form-field class="example-full-width" appearance="standard">
+                    <mat-label> Your name</mat-label>
+                    <input matInput placeholder="Your name" [formControl]="name" required>
+                    <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width" appearance="standard">
+                      <mat-label> Your Companion's name</mat-label>
+                      <input matInput placeholder="Your Companion's name" [formControl]="name" required>
+                      <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+                  </mat-form-field>
+            </div>
+          
+           
+           
+            <div class="form-row">
+                <p class="mat-subheading-2">Your mission has been planned. You are going to launched
+                    above the night sky towards:
+               </p>
+                <mat-form-field appearance="standard">
+                    <mat-label>Destination</mat-label>
+                    <mat-select [formControl]="topic" required>
+                        <mat-option>Space</mat-option>
+                        <mat-optgroup label="Our Solar-system">
+                            <mat-option value="sun">the Sun</mat-option>
+                            <mat-option value="moon">the Moon</mat-option>
+                            <mat-option value="comet">a Comet</mat-option>
+                            <mat-option value="planet">a Planet</mat-option>
+                        </mat-optgroup>
+                        <mat-optgroup  label="Our Galaxy">
+                            <mat-option value="blackhole">a Black Hole</mat-option>
+                            <mat-option value="nebula">a Nebula</mat-option>
+                            <mat-option value="star">a nearby Star</mat-option>
+    
+                        </mat-optgroup>
+                        
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <p class="mat-subheading-2">Very important and specific tasks needs to be accomplished </p>
+                <mat-form-field appearance="standard" >
+                    <mat-label>Tasks</mat-label>
+                    <mat-select [formControl]="anotherTopic" [(value)]="selectedValue" multiple>
+                            <mat-option value="pictures">Take amazing pictures</mat-option>
+                            <mat-option value="surface">Study the surface</mat-option>
+                            <mat-option value="phenomena">Uncover still unknown phenomena</mat-option>
+                            <mat-option value="theory">Verify Einstein's General Relativity Theory</mat-option>
+                            <mat-option value="survive">Try to survive</mat-option>                    
+                    </mat-select>
+                    <p>{{selectedValue}}</p>
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <mat-form-field>
+                    <mat-label>Financing Agency</mat-label>
+                    <input type="text" matInput [matAutocomplete]="auto" [formControl]="anotherTopic">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Departure Date</mat-label>
+                    <input matInput [matDatepicker]="datePicker" [min]="minDate" [max]="maxDate" [matDatepickerFilter]="datefilter">
+                    <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #datePicker startView="month"></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <span class="mat-subheading-2">Is your mission succesfull? </span>
 
-    </mat-form-field>
-  
-    <mat-form-field floatLabel="always" class="example-full-width" appearance="outline">
-      <mat-label>Leave a comment</mat-label>
-      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-      <mat-hint align="end">Max 200 characters</mat-hint>
+                <mat-checkbox  labelPosition="after" [formControl]="checkBox"> 
+                    <label *ngIf="checkBox.value">Yes</label>
+                    <label *ngIf="!checkBox.value">No</label>
 
-    </mat-form-field>
-    <mat-form-field appearance="standard">
-        <mat-label>Topic</mat-label>
-        <mat-select [formControl]="topic">
-            <mat-option>Reset</mat-option>
-            <mat-optgroup label="Web">
-                <mat-option value="angular">Angular</mat-option>
-                <mat-option value="react">React</mat-option>
-                <mat-option value="vue">Vue</mat-option>
-            </mat-optgroup>
-            <mat-optgroup  label="Mobile">
-                <mat-option value="ionic">Ionic</mat-option>
-                 <mat-option value="reactNative">React Native</mat-option>
-            </mat-optgroup>
+                </mat-checkbox>
+
+            </div>
+            <div class="form-row">
+                <mat-form-field floatLabel="always" class="example-full-width" appearance="outline">
+                    <mat-label>Leave a comment</mat-label>
+                    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                    <mat-hint align="end">Max 200 characters</mat-hint>
+                        
+                </mat-form-field>
+            </div>
             
-        </mat-select>
-    </mat-form-field>
-
-    <mat-form-field appearance="standard" >
-        <mat-label>Topic</mat-label>
-        <mat-select [formControl]="topic" [(value)]="selectedValue" multiple>
-            <mat-optgroup label="Web">
-                <mat-option value="angular">Angular</mat-option>
-                <mat-option value="react">React</mat-option>
-                <mat-option value="vue">Vue</mat-option>
-            </mat-optgroup>
-            <mat-optgroup  label="Mobile">
-                <mat-option value="ionic">Ionic</mat-option>
-                 <mat-option value="reactNative">React Native</mat-option>
-            </mat-optgroup>
+        
             
-        </mat-select>
-        {{selectedValue}}
-    </mat-form-field>
+        
+        
 
-    <mat-form-field>
-        <mat-label>Autocomplete Input</mat-label>
-        <input type="text" matInput [matAutocomplete]="auto" [formControl]="anotherTopic">
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{option}}
-            </mat-option>
-        </mat-autocomplete>
-    </mat-form-field>
+        </form>
+    </mat-card>
+</div>
 
-        <mat-checkbox  labelPosition="after" [formControl]="checkBox"> subscribe </mat-checkbox>
 
-    <mat-form-field>
-        <input matInput [matDatepicker]="datePicker" [min]="minDate" [max]="maxDate" [matDatepickerFilter]="datefilter">
-        <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
-        <mat-datepicker #datePicker startView="month"></mat-datepicker>
-    </mat-form-field>
-</form>
 
 <button mat-button color="accent" (click)="openSnackBar('You need a real form to proceed', 'Dismiss')">
     Confirm

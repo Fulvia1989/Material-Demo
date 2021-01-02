@@ -14,11 +14,12 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class FormComponent implements OnInit {
   name = new FormControl('', [Validators.required]);
-  topic = new FormControl('');
+  topic = new FormControl('',[Validators.required]);
   anotherTopic = new FormControl('');
+
   checkBox = new FormControl(false);
   selectedValue:string='';
-  options:string[] = ['Angular','Angular Material','React','Vue'];
+  options:string[] = ['NASA','ESA','ASI','JAXA','ISRO','Space X'];
   
   minDate= new Date();
   maxDate= new Date(2029,3,10);
