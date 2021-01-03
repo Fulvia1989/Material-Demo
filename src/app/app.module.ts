@@ -15,6 +15,7 @@ import { GridComponent } from './grid/grid.component';
 import { AccordionComponent } from './accordion/accordion.component';
 import { FormComponent } from './form/form.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { TableComponent } from './table/table.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { DialogComponent } from './dialog/dialog.component';
     GridComponent,
     AccordionComponent,
     FormComponent,
-    DialogComponent
+    DialogComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

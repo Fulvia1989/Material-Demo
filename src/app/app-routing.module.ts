@@ -5,6 +5,7 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { FormComponent } from './form/form.component';
 import { GridComponent } from './grid/grid.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { TableComponent } from './table/table.component';
 import { TypographyComponent } from './typography/typography.component';
 
 
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'spinners', component:SpinnerComponent},
   {path:'grid', component: GridComponent},
   {path:'accordion', component:AccordionComponent},
-  {path:'form', component:FormComponent}
+  {path:'form', component:FormComponent},
+  {path:'table', component:TableComponent}
 ];
 
 @NgModule({
