@@ -1,14 +1,14 @@
-mat-grid-tile:nth-child(1){
-    background-color: lightskyblue;
-}
+@import 'src/assets/theme/custom-theme.scss';
+
+
 mat-grid-tile:nth-child(4){
-    background-color: lightgrey!important;
+    background-color: mat-color($my-custom-warn, lighter)!important;
 }
 mat-grid-tile:nth-child(odd){
-    background-color: lightslategray;
+    background-color: $background;
 }
 mat-grid-tile:nth-child(even){
-    background-color: linen;
+    background-color:mat-color($my-custom-primary, lighter);
 }
 mat-grid-list{
     margin:0.5rem;
