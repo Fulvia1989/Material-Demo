@@ -2,7 +2,7 @@
 <p class="mat-headline">A far-away adventure in Space</p>
 <div class="container">
     <mat-card>
-        <form class="form">
+        <form class="form" [formGroup]="form">
            
             <div class="form-row"> 
                 <p class="mat-subheading-2">You and your friend are preparing for a great adventure, a long long journey 
@@ -10,25 +10,23 @@
                 </p>
                 <mat-form-field class="example-full-width" appearance="standard">
                     <mat-label> Your name</mat-label>
-                    <input matInput placeholder="Your name" [formControl]="name" required>
-                    <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+                    <input matInput placeholder="Your name" formControlName="name" required>
+                    <mat-error *ngIf="form.controls['name'].invalid">{{getErrorMessage()}}</mat-error>
                   </mat-form-field>
                   <mat-form-field class="example-full-width" appearance="standard">
                       <mat-label> Your Companion's name</mat-label>
-                      <input matInput placeholder="Your Companion's name" [formControl]="name" required>
-                      <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+                      <input matInput placeholder="Your Companion's name" formControlName="companion" required>
+                      <mat-error *ngIf="form.controls['companion'].invalid">{{getErrorMessage()}}</mat-error>
                   </mat-form-field>
             </div>
           
-           
-           
             <div class="form-row">
                 <p class="mat-subheading-2">Your mission has been planned. You are going to launched
                     above the night sky towards:
                </p>
                 <mat-form-field appearance="standard">
                     <mat-label>Destination</mat-label>
-                    <mat-select [formControl]="topic" required>
+                    <mat-select formControlName="destination" required>
                         <mat-option>Space</mat-option>
                         <mat-optgroup label="Our Solar-system">
                             <mat-option value="sun">the Sun</mat-option>
@@ -37,7 +35,7 @@
                             <mat-option value="planet">a Planet</mat-option>
                         </mat-optgroup>
                         <mat-optgroup  label="Our Galaxy">
-                            <mat-option value="blackhole">a Black Hole</mat-option>
+                            <mat-option value="black hole">a Black Hole</mat-option>
                             <mat-option value="nebula">a Nebula</mat-option>
                             <mat-option value="star">a nearby Star</mat-option>
     
@@ -50,7 +48,7 @@
                 <p class="mat-subheading-2">Very important and specific tasks needs to be accomplished </p>
                 <mat-form-field appearance="standard" >
                     <mat-label>Tasks</mat-label>
-                    <mat-select [formControl]="anotherTopic" [(value)]="selectedValue" multiple>
+                    <mat-select formControlName="tasks" [(value)]="selectedValue" multiple>
                             <mat-option value="pictures">Take amazing pictures</mat-option>
                             <mat-option value="surface">Study the surface</mat-option>
                             <mat-option value="phenomena">Uncover still unknown phenomena</mat-option>
@@ -63,7 +61,7 @@
             <div class="form-row">
                 <mat-form-field>
                     <mat-label>Financing Agency</mat-label>
-                    <input type="text" matInput [matAutocomplete]="auto" [formControl]="anotherTopic">
+                    <input type="text" matInput [matAutocomplete]="auto" formControlName="agency">
                     <mat-autocomplete #auto="matAutocomplete">
                         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                             {{option}}
@@ -72,7 +70,8 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Departure Date</mat-label>
-                    <input matInput [matDatepicker]="datePicker" [min]="minDate" [max]="maxDate" [matDatepickerFilter]="datefilter">
+                    <input matInput [matDatepicker]="datePicker" [min]="minDate" [max]="maxDate" 
+                        [matDatepickerFilter]="datefilter" formControlName="date">
                     <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
                     <mat-datepicker #datePicker startView="month"></mat-datepicker>
                 </mat-form-field>
@@ -80,15 +79,15 @@
             <div class="form-row">
                 <span class="mat-subheading-2">Is your mission succesfull? </span>
 
-                <mat-checkbox  labelPosition="after" [formControl]="checkBox"> 
-                    <label *ngIf="checkBox.value">Yes</label>
-                    <label *ngIf="!checkBox.value">No</label>
+                <mat-checkbox  labelPosition="after"  formControlName="checkbox"> 
+                    <label *ngIf="form.controls['checkbox'].value">Yes</label>
+                    <label *ngIf="!form.controls['checkbox'].value">No</label>
 
                 </mat-checkbox>
 
             </div>
-            <div class="form-row">
-                <mat-form-field floatLabel="always" class="example-full-width" appearance="outline">
+            <div class="form-row textarea" *ngIf="form.controls['checkbox'].value">
+                <mat-form-field floatLabel="always"  appearance="outline">
                     <mat-label>Leave a comment</mat-label>
                     <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
                     <mat-hint align="end">Max 200 characters</mat-hint>
@@ -96,18 +95,15 @@
                 </mat-form-field>
             </div>
             
-        
-            
-        
-        
-
         </form>
+        <mat-card-actions align="end">
+            <!-- <button mat-button color="accent" (click)="openSnackBar('You need a real form to proceed', 'Dismiss')">
+                Confirm
+            </button> -->
+            <button mat-raised-button (click)="openDialog()" [disabled]="form.invalid">Show your story</button>
+        </mat-card-actions>
     </mat-card>
 </div>
 
 
 
-<button mat-button color="accent" (click)="openSnackBar('You need a real form to proceed', 'Dismiss')">
-    Confirm
-</button>
-<button mat-raised-button (click)="openDialog()">Open Dialog</button>

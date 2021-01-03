@@ -1,8 +1,36 @@
-<h2 mat-dialog-title>{{data.name}} - Session timeout</h2>
-<mat-dialog-content>
-    You'll be logged out due to inactvity
-</mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-button mat-dialog-close mat-dialog-close="true">Keep me logged in</button>
-    <button mat-button mat-dialog-close mat-dialog-close="false">Log out</button>
-</mat-dialog-actions> 
+<div *ngIf="data.name!=='Rosetta' && data.companion!=='Philae'">
+        <h2 mat-dialog-title> Once upon a time...</h2>
+    <mat-dialog-content>
+    <p>... two brave astronauts named <span>{{data.name}}</span> and <span>{{data.companion}}</span> 
+    were launched into the night sky.</p>
+    <p>A long long journey lay ahead of them, to uncover the misteries of our Universe.
+    It had taken many many years to dream up this mission; and now, on <span>{{data.date | date: 'longDate'}}</span> 
+    they are on the way of the far off <span>{{data.destination}}</span>.</p>
+    <p>When they got to there they would find out all about its secrets: <span>{{data.tasks}}</span>, 
+    nothing would be left behind.</p>
+    <p><span>{{data.name}}</span> and <span>{{data.companion}}</span> had a historic mission ahead of them, but the journey would be
+    very long and they would have to overcome many changellengies before they reach their destination.</p>
+    <p>At the end, 
+    <span *ngIf="data.checkbox">the mission was a success.</span> 
+    <span *ngIf="!data.checkbox"> the mission didn't went as expected. </span>
+    Inspite of everything, they new that, just like other space explorers that had gone before them,
+    the legacy of their amazing mission would live forever.</p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <span>Do you like it?</span>
+        <button mat-button mat-dialog-close mat-dialog-close="true">Yes, keep it</button>
+        <button mat-button mat-dialog-close mat-dialog-close="false">Mmmh...</button>
+    </mat-dialog-actions> 
+</div>
+<div *ngIf="data.name=='Rosetta' && data.companion=='Philae' && data.destination=='comet'">
+    <h2 mat-dialog-title> Did you know?...</h2>
+    <mat-dialog-content>
+        <div class="image"></div>
+        <!-- <img src="../../assets/maxresdefault.jpg"> -->
+        Rosetta's lander Philae is named after an island in the Nile river, 
+        where archaeologists found an inscription on an obelisk that confirmed 
+        their interpretation of the Rosetta Stone hyeroglyphics texts.
+        As The Rosetta Stone provided the key to an ancient civilization,ESA’s Rosetta mission 
+        will allow scientists to unlock the mysteries of the oldest building blocks of our Solar System: comets.
+    </mat-dialog-content>
+</div>

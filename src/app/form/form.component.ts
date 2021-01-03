@@ -1,11 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatSnackBar} from '@angular/material/snack-bar';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
-
+export class FormData {
+  name: string;
+  companion: string;
+  checkbox: boolean;
+  destination: string;
+  tasks: string;
+  agency: string;
+  date: string;
+}
 
 @Component({
   selector: 'app-form',
@@ -13,11 +21,12 @@ import { DialogComponent } from '../dialog/dialog.component';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  name = new FormControl('', [Validators.required]);
   topic = new FormControl('',[Validators.required]);
   anotherTopic = new FormControl('');
 
-  checkBox = new FormControl(false);
+  form:FormGroup;
+  formData = new FormData();
+
   selectedValue:string='';
   options:string[] = ['NASA','ESA','ASI','JAXA','ISRO','Space X'];
   
@@ -28,11 +37,23 @@ export class FormComponent implements OnInit {
   constructor(private snackBar: MatSnackBar, private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.form = this.generatForm();
     this.filteredOptions = this.anotherTopic.valueChanges.pipe(
       startWith(''),
       map(value => this.filter(value))
     )
 
+  }
+  generatForm():FormGroup{
+    return new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      companion: new FormControl('', [Validators.required]),
+      checkbox: new FormControl(false),
+      destination: new FormControl('', [Validators.required]),
+      tasks: new FormControl(''),
+      agency: new FormControl(''),
+      date: new FormControl()
+    })
   }
   openSnackBar(message, action){
     let snackBarRef = this.snackBar.open(message,action, {duration:3000});
@@ -44,7 +65,11 @@ export class FormComponent implements OnInit {
     })
   }
   openDialog(){
-    let dialogRef = this.dialog.open(DialogComponent, {data:{name:'Angular Material'}});
+    Object.keys(this.form.value).forEach(key => {
+      this.formData[key]=this.form.value[key];
+    });
+    
+    let dialogRef = this.dialog.open(DialogComponent, {data:this.formData});
     dialogRef.afterClosed().subscribe( result => {
       console.log(`Dialog result: ${result}`);
     })
@@ -62,7 +87,7 @@ export class FormComponent implements OnInit {
   
   
   getErrorMessage() {
-    if (this.name.hasError('required')) {
+    if (this.form.get('name').hasError('required')) {
       return 'You must enter a value';
     }
 
