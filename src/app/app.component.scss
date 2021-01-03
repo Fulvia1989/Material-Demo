@@ -1,4 +1,4 @@
-
+@import 'src/assets/theme/custom-theme.scss';
 .example-spacer {
     flex: 1 1 auto;
 }
@@ -13,6 +13,10 @@ mat-sidenav{
     padding: 0.5rem;
 }
 mat-sidenav{
-    background-color:#683ab7;
+    background-color: mat-color($my-custom-primary, darker)!important;
     width: 200px;
+    
+}
+mat-list-item{
+    color:white!important;
 }

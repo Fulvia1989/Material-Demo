@@ -11,7 +11,6 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { TypographyComponent } from './typography/typography.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { GridComponent } from './grid/grid.component';
 import { AccordionComponent } from './accordion/accordion.component';
 import { FormComponent } from './form/form.component';
@@ -26,7 +25,6 @@ import { ScrollComponent } from './scroll/scroll.component';
     TypographyComponent,
     ButtonsComponent,
     SpinnerComponent,
-    SidenavComponent,
     GridComponent,
     AccordionComponent,
     FormComponent,

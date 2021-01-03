@@ -2,7 +2,7 @@
   <mat-sidenav mode="side" #sidenav (opened)="log('Opened')" (closed)="log('Closed')">
 
     <div>
-      <button mat-stroked-button color="accent" [matMenuTriggerFor]="appMenu">Menu</button>
+      <button mat-flat-button color="warn" [matMenuTriggerFor]="appMenu">Menu</button>
       <mat-menu #appMenu="matMenu" xPosition="after" yPosition="below">
         <button mat-menu-item [matMenuTriggerFor]="subMenu" >FrontEnd</button>
         <button mat-menu-item>BackEnd</button>

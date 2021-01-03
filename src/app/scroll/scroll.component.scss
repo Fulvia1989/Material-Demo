@@ -1,8 +1,14 @@
-.number{
+@import 'src/assets/theme/custom-theme.scss';
+
+@mixin flexcontainer {
+
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:  #673AB7;
+}
+.number{
+    @include flexcontainer();
+    background-color:  $background;
     color: white;
     border-radius: 5px;
     box-sizing: border-box;
@@ -11,9 +17,7 @@
     margin: 0.5rem;
 }
 .box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexcontainer();
 }
 .container{
     height: 50vh;
