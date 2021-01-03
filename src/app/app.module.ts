@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {MaterialModule} from './material/material.module';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 import { TypographyComponent } from './typography/typography.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { SpinnerComponent } from './spinner/spinner.component';
@@ -16,6 +17,7 @@ import { AccordionComponent } from './accordion/accordion.component';
 import { FormComponent } from './form/form.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { TableComponent } from './table/table.component';
+import { ScrollComponent } from './scroll/scroll.component';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { TableComponent } from './table/table.component';
     AccordionComponent,
     FormComponent,
     DialogComponent,
-    TableComponent
+    TableComponent,
+    ScrollComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { TableComponent } from './table/table.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
