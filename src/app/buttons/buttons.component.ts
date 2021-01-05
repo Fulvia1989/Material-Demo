@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import {ViewEncapsulation} from '@angular/core';
+
 
 @Component({
   selector: 'app-buttons',
   templateUrl: './buttons.component.html',
-  styleUrls: ['./buttons.component.scss']
+  styleUrls: ['./buttons.component.scss'],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class ButtonsComponent implements OnInit {
 

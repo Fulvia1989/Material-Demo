@@ -1,22 +1,48 @@
-button{
-    margin: 1rem;
+mat-card-content button{
+    margin: 0.5rem!important;
+}
+
+.mat-menu-panel{
+    
+    width: 10rem;
 }
 .container{
     display: flex;
     flex-wrap: wrap;
 }
-mat-card{
-    width: 400px;
+.mat-card{
+    width: 20rem;
     margin:0.5rem;
+    
+        display:flex!important;
+        flex-direction: column;
+    .mat-card-actions{
+        margin-top: auto;
+    }
 }
 .toggles{
-    width: 700px;
+    flex-grow: 1;
+    max-width: 30rem;
+    
     mat-card-content{
         display: flex;
+        flex-wrap: wrap;
     }
-
-    div{
-        margin:1rem;
+    button{
+        margin:0!important;
+    }
+    mat-button-toggle{
+        margin:0;
+        width: 5rem;
+        
+        .mat-button-toggle-label-content{
+            padding: 0;
+            margin:0;
+        }
+    }
+    .toggle-element{
+        margin: 0.5rem!important;
+        padding: 0.3rem;
         display: flex;
         flex-direction: column;
         align-items: center;
